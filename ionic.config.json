@@ -1,0 +1,7 @@
+{
+  "name": "ress01",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
