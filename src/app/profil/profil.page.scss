@@ -1,0 +1,20 @@
+ion-header{
+  --ion-background-color: #11998e;
+}
+.displayed {
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.box{
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.move{
+  display: flex;
+  margin-top: -50px;
+}
