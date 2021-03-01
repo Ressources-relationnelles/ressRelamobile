@@ -1,26 +1,62 @@
 
 
 <ion-content>
-  <div class="bg_img"></div>
-  <img class="displayed"  height="200 px" width="200 px" src="../../assets/icon/77191645.png" routerLink="/home">
+    <!-- Test si l'utilisateur non connecté => affiche formulaire ou non -->
+    <!-- <div *ngIf="!connected"> -->
+        <div class="bg_img"></div>
+        <img class="displayed"  height="200 px" width="200 px" src="../../assets/icon/77191645.png" routerLink="/home">
 
-  <div class="padding">
-  <ion-item>
-    <ion-label color="light">Email</ion-label>
-    <ion-input color="light" placeholder="Adresse mail" type="email"></ion-input>
-  </ion-item>
+        <div class="padding">
+          <form (ngSubmit)="login()" [formGroup]="loginForm">
 
-  <ion-item>
-    <ion-label color="light">Mot de passe</ion-label>
-    <ion-input color="light" placeholder="Mot de passe" type="password"></ion-input>
-  </ion-item>
+            <ion-item>
+                <ion-label color="light">Email</ion-label>
+                <ion-input color="light" type='email' formControlName="email" placeholder="Adresse mail" type="email"></ion-input>
+            </ion-item>
 
-  <ion-item lines="none">
-    <ion-button color="light" fill="clear" slot="end">Mot de passe oublié</ion-button>
-  </ion-item>
+            <ion-item>
+                <ion-label color="light">Mot de passe</ion-label>
+                <ion-input color="light" type ='password' formControlName="password" placeholder="Mot de passe" type="password"></ion-input>
+            </ion-item>
 
-  <ion-button shape="round" expand="block">Connexion</ion-button>
-  <br>
-  <ion-button shape="round" expand="block">Creation de compte</ion-button>
-</div>
+            <ion-item lines="none">
+                <ion-button (click)="openReset()" color="light" fill="clear" slot="end">Mot de passe oublié</ion-button>
+            </ion-item>
+
+            <ion-button [disabled]="!loginForm.valid" shape="round" type="submit" (click)="login()" expand="block">Connexion</ion-button>
+            <ion-button shape="round" routerLink='/register' (click)="signUp()" color="tertiary" expand="block">Inscription</ion-button>
+            <!-- <ion-button shape="round" (click)="add()" expand="block">BDD</ion-button> -->
+            <br>
+            <ion-button shape="round" expand="block">Creation de compte</ion-button>
+          </form>
+        </div>
+    <!-- </div> -->
+
+
+    <!-- Si connecté -->
+    <div *ngIf="connected">
+      <h1>Vous êtes bien connecté</h1>
+        <ion-item>
+          <ion-label>
+            <p>Adresse Email</p>
+            <h2>{{ email }}</h2>
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <p>Id Utilisateur</p>
+            <h2>{{ userId }}</h2>
+          </ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <p>Méthode de connexion</p>
+            <h2>{{ method }}</h2>
+          </ion-label>
+        </ion-item>
+      <ion-button (click)="logout()" color="danger">Déconnexion</ion-button>
+    </div>
+
 </ion-content>

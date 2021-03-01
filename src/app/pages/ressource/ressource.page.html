@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>ressource</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Création de ressource</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+      <form [formGroup]="ressourceForm" (ngSubmit)="saveOrUpdate()">
+        <ion-item>
+          <ion-label position="floating">Titre <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="title" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contenu <ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required formControlName="desc" type="text"></ion-input>
+        </ion-item>
+
+        <ion-button block color="primary" type="submit" [disabled]="ressourceForm.invalid">
+          Créer
+        </ion-button>
+      </form>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

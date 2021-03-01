@@ -24,9 +24,28 @@
     </ion-label>
   </ion-item>
 </ion-card>
-<img src="../../assets/icon/pasta.jpeg">
-</ion-content>
 
+ <!-- <img src="../../assets/icon/pasta.jpeg">  -->
+
+<!-- Test affichage boucle sur les ressources en base de données-->
+<ion-list *ngFor="let ressource of ressources | async">
+  <ion-item>
+    <ion-label>
+      <h2>{{ ressource.title }}</h2>
+      <p>{{ ressource.desc }}</p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+
+
+</ion-content>
+<!-- Boutton ajouter ressources -->
+<ion-fab  class="ion-margin-bottom ion-margin-end ion-padding-bottom" vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="success" (click)="openRessourceModal()">
+  <!-- <ion-fab-button color="success"> -->
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 
 <ion-tab-bar color="light" slot="bottom">
   <ion-tab-button tab="tab1" routerLink="/home">
