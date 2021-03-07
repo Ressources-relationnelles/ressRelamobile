@@ -1,3 +1,105 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu menuId="main-menu" content-id="main" type="overlay">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title slot="start">Menu</ion-title>
+        <ion-menu-toggle slot="end">
+          <ion-item > <ion-icon name="close" slot="end"></ion-icon> </ion-item>
+        </ion-menu-toggle>
+      </ion-toolbar>
+
+    </ion-header>
+    <ion-content>
+      <ion-list id="sidenav">
+        <ion-item (click)="menuItemHandler()"><ion-icon name="reader-outline" slot="start"></ion-icon>
+          <ion-label>Catégorie</ion-label></ion-item>
+        <ion-item-group submenu [class.visible]="showSubmenu">
+          <ion-item>
+            <ion-icon name="book-outline" slot="start"></ion-icon>
+            <ion-label>Communication</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="globe-outline" slot="start"></ion-icon>
+            <ion-label>Culture</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="newspaper-outline" slot="start"></ion-icon>
+            <ion-label>Développement personnel</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="heart-circle-outline" slot="start"></ion-icon>
+            <ion-label>Intelligence émotionelle</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="extension-puzzle-outline" slot="start"></ion-icon>
+            <ion-label>Loisirs</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="briefcase-outline" slot="start"></ion-icon>
+            <ion-label>Monde professionnel</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="people-outline" slot="start"></ion-icon>
+            <ion-label>Parentalité</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="fast-food-outline" slot="start"></ion-icon>
+            <ion-label>Qualité de vie</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="compass-outline" slot="start"></ion-icon>
+            <ion-label>Recherche de sens</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="fitness-outline" slot="start"></ion-icon>
+            <ion-label>Santé physique</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="heart-half-outline" slot="start"></ion-icon>
+            <ion-label>Santé psychique</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="body-outline" slot="start"></ion-icon>
+            <ion-label>Spiritualité</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="bonfire-outline" slot="start"></ion-icon>
+            <ion-label>Vie affective</ion-label>
+          </ion-item>
+        </ion-item-group>
+
+
+
+        <ion-item (click)="menuItemHandler2()"><ion-icon name="repeat-outline" slot="start"></ion-icon>
+          <ion-label>Relation</ion-label></ion-item>
+        <ion-item-group submenu [class.visible]="showSubmenu2">
+        <ion-item>
+          <ion-icon name="reader-outline" slot="start"></ion-icon>
+          <ion-label>Soi</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="reader-outline" slot="start"></ion-icon>
+          <ion-label>Conjoints</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="reader-outline" slot="start"></ion-icon>
+          <ion-label>Famille</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="reader-outline" slot="start"></ion-icon>
+          <ion-label>Professionnelle</ion-label>
+        </ion-item>
+      </ion-item-group>
+        <ion-item>
+          <ion-icon name="settings-outline" slot="start"></ion-icon>
+          <ion-label>Paramètres</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="log-out-outline" slot="start" routerLink="/co"></ion-icon>
+          <ion-label routerLink="/co">Déconnexion</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>
