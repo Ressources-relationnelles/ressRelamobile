@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
 import{ModalController}from '@ionic/angular';
-import { AuthService } from './services/auth.service';
-
+import { Component, OnInit } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { FormBuilder, Validators, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../app/services/auth.service';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',

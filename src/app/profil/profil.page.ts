@@ -45,3 +45,21 @@ export class ProfilPage implements OnInit {
   }
 
 }
+
+export class YourClass{
+
+  LikeValue: number;
+  DislikeValue: number;
+
+    constructor(){
+    this.LikeValue = 0;
+    this.DislikeValue = 0;
+    }
+
+    handleLike(){
+     this.LikeValue++;
+    }
+    handleDislike(){
+     this.DislikeValue++;
+    }
+  }
