@@ -1,3 +1,5 @@
+{% import "YourClass" as name %}
+
 <ion-header [translucent]="true">
   <ion-toolbar>
     <img class="displayed"  height="75 px" width="75 px" src="../../assets/icon/77191645.png" routerLink="/co">
@@ -33,6 +35,8 @@
       <p>{{ ressource.desc }}</p>
     </ion-label>
   </ion-item>
+    <ion-button (click)="handleLike()">{{LikeValue}}</ion-button>
+    <ion-button (click)="handleDislike()">{{DislikeValue}}</ion-button>
 </ion-list>
 
 
