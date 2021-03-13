@@ -17,8 +17,8 @@
 <ion-card>
   <ion-item lines="none">
     <ion-label text-wrap>
-      <h2><b>Jean Patrick de la Tourette</b></h2>
-      <p>I'M FUCKING MACKING MAC AND CHEESE, AND NOBODY CAN STOP ME</p>
+      <h2><b>{{ user.nom }}</b></h2>
+      <p></p>
     </ion-label>
   </ion-item>
 </ion-card>
@@ -26,12 +26,18 @@
  <!-- <img src="../../assets/icon/pasta.jpeg">  -->
 
 <!-- Test affichage boucle sur les ressources en base de données-->
-<ion-list *ngFor="let ressource of ressources | async">
-  <ion-item>
+<ion-list >
+  <ion-item *ngFor="let ressource of ressources | async">
+    <ion-icon name="radio-button-off" color="dark" *ngIf="ressource.status == 0" slot="start" ></ion-icon>
+    <ion-icon name="checkmark-circle" color="success" *ngIf="ressource.status == 1" slot="start" ></ion-icon>
+
     <ion-label>
       <h2>{{ ressource.title }}</h2>
       <p>{{ ressource.desc }}</p>
     </ion-label>
+    <ion-note>
+      {{ ressource.created_at?.seconds*1000 | date: 'MMM d' }}
+    </ion-note>
   </ion-item>
 </ion-list>
 

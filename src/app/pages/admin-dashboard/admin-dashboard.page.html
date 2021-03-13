@@ -1,9 +1,28 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>adminDashboard</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="signOut()">
+        <ion-icon name="log-out" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Admin Area</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<ion-button routerLink='/co'>home</ion-button>
+
+  <ion-list>
+    <ion-item button *ngFor="let ressource of ressources | async" (click)="openRessource(ressource.id)">
+      <ion-icon name="radio-button-off" color="dark" *ngIf="ressource.status == 0" slot="start"></ion-icon>
+      <ion-icon name="checkmark-circle" color="success" *ngIf="ressource.status == 1" slot="start"></ion-icon>
+
+      <ion-label>
+        <h2>{{ ressource.title }}</h2>
+        <p>{{ ressource.desc }}</p>
+      </ion-label>
+      <ion-note color="light" slot="end">{{ ressource.created_at?.seconds*1000 | date: 'MMM d' }}</ion-note>
+
+    </ion-item>
+  </ion-list>
+
 </ion-content>

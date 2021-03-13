@@ -31,32 +31,4 @@
           </form>
         </div>
     <!-- </div> -->
-
-
-    <!-- Si connecté -->
-    <div *ngIf="connected">
-      <h1>Vous êtes bien connecté</h1>
-        <ion-item>
-          <ion-label>
-            <p>Adresse Email</p>
-            <h2>{{ email }}</h2>
-          </ion-label>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>
-            <p>Id Utilisateur</p>
-            <h2>{{ userId }}</h2>
-          </ion-label>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>
-            <p>Méthode de connexion</p>
-            <h2>{{ method }}</h2>
-          </ion-label>
-        </ion-item>
-      <ion-button (click)="logout()" color="danger">Déconnexion</ion-button>
-    </div>
-
 </ion-content>

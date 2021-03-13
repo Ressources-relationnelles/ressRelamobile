@@ -16,12 +16,6 @@ export class CoPage implements OnInit {
 
   loginForm : FormGroup
 
-  dataUser = {
-      email: '',
-      password: '',
-  };
-
-  connected : boolean;
   email : string = '';
   userId : string = '';
   method : string = '';
@@ -39,10 +33,9 @@ export class CoPage implements OnInit {
       this.afAuth.authState.subscribe(auth => {
           if ( !auth ) {
               console.log('non connecté');
-              this.connected = false;
+
           }else {
               console.log('connecté' );
-              this.connected = true;
               this.userId = auth.uid;
               this.email = auth.email;
               this.method = auth.providerData[0].providerId;
@@ -55,12 +48,6 @@ export class CoPage implements OnInit {
       email:['', [Validators.required, Validators.email]],
       password:['', [Validators.required, Validators.minLength(6)]]
     })
-  }
-
-  add() {
-      this.afDB.list('User').push({
-      pseudo: 'yoann',
-      });
   }
 
   async login() {
@@ -141,27 +128,5 @@ export class CoPage implements OnInit {
         alert.present();
       }
     );
-  }
-
-
-
-  // login() {
-  //     this.afAuth.signInWithEmailAndPassword(this.dataUser.email,this.dataUser.password);
-  //     // Réinitialisation des inputs de connexion
-  //     this.dataUser = {
-  //       email: '',
-  //       password:''
-  //     }
-  // }
-  signUp() {
-    this.afAuth.createUserWithEmailAndPassword(this.dataUser.email,this.dataUser.password);
-    // Réinitialisation des inputs de connexion
-    this.dataUser = {
-      email: '',
-      password:''
-    }
-  }
-  logout() {
-    this.afAuth.signOut();
   }
 }
