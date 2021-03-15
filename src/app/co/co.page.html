@@ -3,8 +3,11 @@
 <ion-content>
     <!-- Test si l'utilisateur non connecté => affiche formulaire ou non -->
     <!-- <div *ngIf="!connected"> -->
-        <div class="bg_img"></div>
-        <img class="displayed"  height="200 px" width="200 px" src="../../assets/icon/77191645.png" routerLink="/home">
+        <div class="header">
+          <h1 style="color:white;">(Re)Sources relationnelles</h1>
+          <h2 style="color:yellow;">Créer, partager, enrichir vos relations</h2>
+          <ion-img text-center src="../../assets/icon/77191645.png" routerLink="/home"></ion-img>
+        </div>
 
         <div class="padding">
           <form (ngSubmit)="login()" [formGroup]="loginForm">
@@ -23,11 +26,8 @@
                 <ion-button (click)="openReset()" color="light" fill="clear" slot="end">Mot de passe oublié</ion-button>
             </ion-item>
 
-            <ion-button [disabled]="!loginForm.valid" shape="round" type="submit" (click)="login()" expand="block">Connexion</ion-button>
-            <ion-button shape="round" routerLink='/register' (click)="signUp()" color="tertiary" expand="block">Inscription</ion-button>
-            <!-- <ion-button shape="round" (click)="add()" expand="block">BDD</ion-button> -->
-            <br>
-            <ion-button shape="round" expand="block">Creation de compte</ion-button>
+            <ion-button [disabled]="!loginForm.valid" color="success" shape="round" type="submit" (click)="login()" expand="block">Connexion</ion-button>
+            <ion-button shape="round" routerLink='/register' color="tertiary" expand="block">Inscription</ion-button>
           </form>
         </div>
     <!-- </div> -->

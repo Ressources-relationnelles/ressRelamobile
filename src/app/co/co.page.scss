@@ -1,5 +1,31 @@
-ion-content{
-  --ion-background-color: #11998e;
+
+@media screen and (max-width: 640px) {
+  ion-content{
+    // --ion-background-color: #11998e;
+    --background: url(../../assets/fdCo.png) 0 0/100% 100% no-repeat;
+    // object-fit: cover;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  ion-content{
+    // --ion-background-color: #11998e;
+    --background: url(../../assets/desktop.png) 0 0/100% 100% no-repeat;
+    // height:100%;
+    object-fit: cover;
+  }
+}
+.header {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align:center;
+  padding-top:30px;
+}
+ion-img {
+  height:170px;
+  width:170px;
 }
 
 ion-item{
@@ -10,11 +36,11 @@ ion-item{
   padding: 5%;
 }
 
-.displayed{
-  display: block;
-  margin-top: 20px;
-  margin-left: 40px;
-  margin-right: 40px;
-}
+// .displayed{
+//   display: block;
+//   margin-top: 20px;
+//   margin-left: 40px;
+//   margin-right: 40px;
+// }
 
 

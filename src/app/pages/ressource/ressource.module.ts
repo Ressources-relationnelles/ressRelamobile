@@ -6,6 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 
 import { RessourcePage } from './ressource.page';
+import { SharedDirectivesModule } from 'src/app/directives/shared-directives.module';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { RessourcePage } from './ressource.page';
     FormsModule,
     IonicModule,
     ReactiveFormsModule,
+    SharedDirectivesModule
   ],
   declarations: [RessourcePage]
 })

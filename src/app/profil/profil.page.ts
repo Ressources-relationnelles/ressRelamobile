@@ -18,13 +18,8 @@ export class ProfilPage implements OnInit {
   constructor(private auth : AuthService, private modalCtrl : ModalController, private ressourceService : RessourceService, private db : AngularFirestore) { }
 
   ngOnInit() {
-    let ide = this.auth.currentUser.value.id;
-    console.log(ide);
-
-    console.log(this.user);
-
     this.ressources = this.ressourceService.getRessourceByUser();
-    console.log('ressources : ', this.ressourceService.getRessourceByUser());
+    // console.log('ressources : ', this.ressourceService.getRessourceByUser());
   }
 
   async openRessourceModal() {

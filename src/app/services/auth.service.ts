@@ -68,6 +68,24 @@ export class AuthService {
       this.router.navigateByUrl('/co');
     })
   }
+
+  /**
+   * Test si l'utilisateur a les permissions requises pour effectuer une action 
+   * @param permissions Permissions
+   * @returns boolean
+   */
+  hasPermissions(permissions : string[]) :boolean {
+    if (!permissions) {
+      return false;
+    }
+    for (const perm of permissions) {
+      if (!this.currentUser.value || !this.currentUser.value.permissions.includes(perm)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   // Réinitialisation de mot de passe, back gérer par Firebase
   resetPw(email :string) {
     return this.afAuth.sendPasswordResetEmail(email);

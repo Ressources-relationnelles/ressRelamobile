@@ -10,14 +10,17 @@
 </ion-header>
 
 <ion-content>
+
   <ion-card>
     <ion-card-header>
       <ion-card-title *ngIf="!id">Création de ressource</ion-card-title>
       <ion-card-title *ngIf="id">Ressource : #{{ id }}</ion-card-title>
     </ion-card-header>
+
     <ion-card-content>
 
       <form [formGroup]="ressourceForm" (ngSubmit)="saveOrUpdate()">
+
         <ion-item *ngIf='id'>
           <ion-label>Utilisateur</ion-label>
           <ion-input type="text" [(ngModel)]="user"
@@ -30,12 +33,13 @@
           <ion-label position="floating">Titre <ion-text color="danger">*</ion-text></ion-label>
           <ion-input required formControlName="title" type="text"></ion-input>
         </ion-item>
+
         <ion-item>
           <ion-label position="floating">Contenu <ion-text color="danger">*</ion-text></ion-label>
           <ion-textarea required formControlName="desc" type="text"></ion-textarea>
         </ion-item>
 
-        <ion-item>
+        <ion-item *appHasPermission="['change-ressource-status']">
           <ion-label>Status</ion-label>
             <ion-segment formControlName="status" mode="ios">
               <ion-segment-button value="0" layout="icon-start">
@@ -55,7 +59,7 @@
           <p *ngIf="id">Modifier</p>
         </ion-button>
 
-        <ion-button class='ion-margin-vertical ion-margin-horizontal' expand="block" color='danger' (click)="deleteRessource()">
+        <ion-button class='ion-margin-vertical ion-margin-horizontal' expand="block" color='danger' (click)="deleteRessource()" *appHasPermission="['delete-ressource']">
           <ion-icon name="trash" slot="end"></ion-icon>
         </ion-button>
       </form>
